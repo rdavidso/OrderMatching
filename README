@@ -1,0 +1,11 @@
+To build, simply type make.  There is a dependency on libboost for the trim function.
+
+The MatchEngine program takes either one or several arguments.  If there is just one argument:
+
+`MatchEngine orders.txt` will read orders.txt as an input file for possible trades, and will write out any leftovers to a default of "export.txt";
+
+If there are to be multiple arguments, the first argument is the filename for output of any unmatched orders.  The second argument and onward are valid filenames that contain orders to be processed.
+
+`MatchEngine export.txt orders.txt` would create an export.txt file with any orders that were not processed in orders.txt
+You could then do:
+`MatchEngine export2.txt export.txt next.txt` and it would read in the previous run's leftovers, then mix in new orders from next.txt, while writing the rest to export2.txt.
